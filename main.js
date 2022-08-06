@@ -1,7 +1,3 @@
-// empezamos dando nuestro dato
-let nombre = prompt(`Para comenzar ingrese su nombre`).toUpperCase();
-alert (`Hola ${nombre} voy acompañarte a lo largo de tu compra`)
-
 // creo funciones
 function canoCorrugado (){
     let cantidad = parseInt(prompt(`ingrese la cantidad de rollos de caño corrugado estandar deseada`))
@@ -27,15 +23,6 @@ function modulos (){
     alert (`${nombre} tu total es $${total}`)
     continuar()
 }
-
-function abrirMenu (menu){
-    let opcion = prompt (`Que elemento electrico desea comprar. \ \n1 .caño corrugado \n2 .cable \n3 .termica \n4 .modulos`)
-    return opcion
-}
-
-function alertaConsola(){
-    alert(`Por consola vera el resultado de la busqueda realizada`)
-} 
 
 // creo funciones de busqueda
 
@@ -107,112 +94,134 @@ function continuar (){
     }
 }
  
-function preguntandoOpcion (){
-    let opcion = parseInt (prompt(`ingrese el numero de la opcion que desea : \n(Para busqueda por ID consulte antes el catalogo)\n
-                                    1- ver catalogo disponible?
-                                    2- Abrir menu de compra?
-                                    3- iniciar busqueda por ID
-                                    4- ver catalogo completo por consola?
-                                    0- salir`))
-    menu(opcion)
-}
-
 // creo objetos con class
 class cables {
-    constructor (id, tipo, diametro, color, precio){
+    constructor (id, tipo, diametro, color, precio,imagen){
         this.id=id
         this.tipo=tipo,
         this.diametro=diametro,
         this.color=color,
         this.precio=precio
+        this.imagen=imagen
     }
     // metodo de la clase
     mostrarDatos(){
         alert(`cable ${this.tipo} ${this.color} de ${this.diametro} numero de id es ${this.id} \n PRECIO : ${this.precio}`)
     }
+    
 }
 
-class cano {
-    constructor (id, tipo, diametro, precio){
+class Otros {
+    constructor (id, tipo, diametro, precio,imagen){
         this.id=id
         this.tipo=tipo,
         this.diametro=diametro,
         this.precio=precio
+        this.imagen=imagen
     }
     datosCano(){
         alert(`${this.tipo} de ${this.diametro} numero de id es  ${this.id} \n PRECIO : ${this.precio}`)
     }
 }
+// OBJETO CABLES
+const elemento1 =new cables (1,"unipolar",4+"mm","marron","$2000","img/rolloMarron.jpg")
+
+const elemento2 =new cables (2,"unipolar",4+"mm","celeste","$2000","img/rolloCeleste.jpg")
+
+const elemento3 =new cables (3,"unipolar",4+"mm","verde","$2000","img/rolloVerde.jpg")
+
+// OBJETOS CAÑOS
+
+const elemento4 =new Otros (4,"caño corrugado", "3/4","$1500","img/rolloCaño.jpg")
+
+const elemento5 =new Otros (5,"caño corrugado", "7/8","$1500","img/rolloCaño.jpg")
+
+const elemento6 =new Otros (6,"caño corrugado", "1","$1500","img/rolloCaño.jpg")
+
+// OBJETO termica
+
+const elemento7 =new Otros (7,"termica",10,"$1000","img/termica4.jpg")
+
+const elemento8 =new Otros (8,"termica",15,"$1000","img/termica3.jpg")
+
+const elemento9 =new Otros (9,"termica",20,"$1000","img/termica2.jpg")
+
+// objeto modulos
+
+const elemento10 =new Otros (10,"modulo","10x5cm","$500","img/llave1.jpg")
+
+const elemento11 =new Otros (11,"modulo","10x5cm","$500","img/llave2.jpg")
+
+const elemento12 =new Otros (12,"modulo","10x5cm","$500","img/llave3.jpg")
+
 //creo arrays
-let catalogoCano = []
-let catalogoCables = []
+const catalogoCables = [elemento1,elemento2,elemento3]
+const catalogoCano = [elemento4,elemento5,elemento6]
+const catalogoTermica = [elemento7,elemento8,elemento9]
+const catalogoModulos = [elemento10,elemento11,elemento12]
 
+// CREANDO PLANTILLAS
+// plantilla cable
 
-catalogoCables.push(new cables (1,"unipolar",4+"mm","marron","$2000"))
+let articleElemento = document.getElementById("productos1")
+catalogoCables.forEach((elemento)=>{let cablesStock = document.createElement("div")
+cablesStock.innerHTML = `<article id="${elemento.id}"class="card">
+                                <h3 class="tituloCard">CABLES</h3>
+                                <img src=${elemento.imagen} alt="cable color ${elemento.color}">
+                                <div class="content">
+                                    <p class="tipoElemento">Cable ${elemento.tipo} de 4mm color ${elemento.color} </p>
+                                    <p class="precio">${elemento.precio}</p>
+                                    <a href="" target="blank"  class="comprar">comprar</a>
+                                </div>    
+                            </article>`
+articleElemento.appendChild(cablesStock)
+})
+             
+// plantilla caño
 
-catalogoCables.push(new cables (2,"unipolar",4+"mm","celeste","$2000"))
+let sectionCaño = document.getElementById("productos2")
+catalogoCano.forEach((elementoCano)=>{
+    let canoStock = document.createElement("div")
+    canoStock.innerHTML = `<article id="${elementoCano.id}"class="card">
+                                <h3 class="tituloCard">CAÑOS</h3>
+                                <img src=${elementoCano.imagen} alt="caño ${elementoCano.diametro}">
+                                <div class="content">
+                                    <p class="tipoElemento">${elementoCano.tipo} de ${elementoCano.diametro} </p>
+                                    <p class="precio">${elementoCano.precio}</p>
+                                    <a href="" target="blank"  class="comprar">comprar</a>
+                                </div>    
+                            </article>`
+sectionCaño.appendChild(canoStock)
+})
 
-catalogoCables.push(new cables (3,"unipolar",4+"mm","verde","$2000"))
-
-catalogoCano.push(new cano (4,"caño corrugado", "3/4","$1500" ))
-
-
-// funcion que recorre array
-
-function verCatalogo(){
-    alert (`acontinuacion le mostraremos el catalogo disponible de cables`)
-    for (let electricidad of catalogoCables){
-        electricidad.mostrarDatos()
-    }
-    verCatalogoCaño()
-}
-
-function verCatalogoCaño(){
-    alert(`acontinuacion le mostraremos el catalogo disponible de caños`)
-    for (let canosDisponible of catalogoCano){
-        canosDisponible.datosCano()
-    }
-}
-// aplicando metodo .forEach
-function recorrer(){
-    alert(`Por consola vera todo el catalogo completo por el momento`)
-    catalogoCables.forEach ((cables)=>console.log(cables))
-    catalogoCano.forEach ((cano)=>console.log(cano))
-}
-
-
-// menu principal
-
-function menu(opcionSeleccionada){
-    switch(opcionSeleccionada){
-        case 0:
-            salir = true
-            alert (`gracias por visitarnos`)
-            break
-            case 1:
-                verCatalogo()
-            break
-            case 2:
-                elementos()
-            break
-            case 3:
-                // recorrer()
-                opcionBusqueda()
-            break
-            case 4:
-                recorrer()
-            break
-                default:
-                    alert(`ingrese una opcion valida`)
-    }
-}
-// ciclo while que me permite salir 
-let salir
-while(salir != true){
-    preguntandoOpcion()
-}
-
-
-
-
+// plantilla termica 
+let sectionTermica = document.getElementById("productos3")
+catalogoTermica.forEach((elementoTermica)=>{
+    let termicaStock = document.createElement("div")
+    termicaStock.innerHTML = `<article id="${elementoTermica.id}"class="card">
+                                    <h3 class="tituloCard">TERMICA  </h3>
+                                    <img src=${elementoTermica.imagen} alt="TERMICA DE ${elementoTermica.diametro}">
+                                    <div class="content">
+                                        <p class="tipoElemento">${elementoTermica.tipo} de ${elementoTermica.diametro} </p>
+                                        <p class="precio">${elementoTermica.precio}</p>
+                                        <a href="" target="blank"  class="comprar">comprar</a>
+                                    </div>    
+                                </article>`
+sectionTermica.appendChild(termicaStock)                           
+})
+// plantilla modulos
+let sectionModulos = document.getElementById("productos4")
+catalogoModulos.forEach((elementoModulos)=>{
+    let moduloStock = document.createElement("div")
+    moduloStock.innerHTML = `<article id="${elementoModulos.id}"class="card">
+                                    <h3 class="tituloCard">MODULOS</h3>
+                                    <img src=${elementoModulos.imagen} alt="MODULO DE ${elementoModulos.diametro}">
+                                    <div class="content">
+                                        <p class="tipoElemento">${elementoModulos.tipo} de ${elementoModulos.diametro} </p>
+                                        <p class="precio">${elementoModulos.precio}</p>
+                                        <a href="" target="blank"  class="comprar">comprar</a>
+                                    </div>    
+                                </article>`
+sectionModulos.appendChild(moduloStock)
+})
 
