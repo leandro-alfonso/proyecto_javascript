@@ -4,17 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1 class="tituloPincipal">INTERACTUANDO CON HTML</h1>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary bg-opacity-25">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-link active" aria-current="page" href="./index.html">inicio</a>
+                </div>
+                <div>
+                    <a data-bs-toggle="modal" href="#exampleModal" ><img class="logo" src="./img/carrito.png"></a>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">carrito de compras</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div id="modal" class="modal-body">
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+                              <p class="precioProducto">Precio Total: $<span id="Total"></span></p>
+                              <div>
+                                <button type="button" class="btn btn-primary">comprar</button>
+                                <button id="vaciarCarrito" type="button" class="btn btn-danger">vaciar carrito</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <!-- <button id="botonDarkMode" class="btn btn-dark">Dark</button><br><br>
+    <button id="botonLightMode" class="btn btn-light">Light</button><br><br> -->
+
+    <h1 class="tituloPincipal">INCORPORANDO EVENTOS</h1>
     <main class="main">
         <section id="productos1" class="primeraSection"></section>
         <section id="productos2" class="primeraSection"></section>
         <section id="productos3" class="primeraSection"></section>
         <section id="productos4" class="primeraSection"></section>
+        <section><button id="verCatalogo">Mostrar catalogo</button>
+        <button id="ocultarCatalogo">ocultar catalogo</button></section>
     </main>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script src="./main.js"></script>
 </body>
 </html>
