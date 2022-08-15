@@ -67,7 +67,9 @@ const catalogoCano = [elemento4,elemento5,elemento6]
 const catalogoTermica = [elemento7,elemento8,elemento9]
 const catalogoModulos = [elemento10,elemento11,elemento12]
 // array vacio de Carrito
-const arrayCarrito = []
+let arrayCarrito = []
+
+
 
 // capturo id para la creacion de plantillas
 let articleElemento = document.getElementById("productos1")
@@ -78,10 +80,11 @@ let sectionModulos = document.getElementById("productos4")
 // CREANDO PLANTILLAS
 // plantilla cable
 function verCatalogo(){
+    articleElemento.innerHTML = ""
     catalogoCables.forEach((elemento)=>{let cablesStock = document.createElement("div")
     cablesStock.innerHTML = `<article id="${elemento.id}"class="card">
                                     <h3 class="tituloCard">CABLES</h3>
-                                    <img src=${elemento.imagen} alt="cable color ${elemento.color}">
+                                    <img class="img__catalogo" src=${elemento.imagen} alt="cable color ${elemento.color}">
                                     <div class="content">
                                         <p class="tipoElemento">Cable ${elemento.tipo} de 4mm color ${elemento.color} </p>
                                         <p class="precio">$ ${elemento.precio}</p>
@@ -97,12 +100,12 @@ function verCatalogo(){
     })
                  
     // plantilla caño
-    
+    sectionCaño.innerHTML = ""
     catalogoCano.forEach((elementoCano)=>{
         let canoStock = document.createElement("div")
         canoStock.innerHTML = `<article id="${elementoCano.id}"class="card">
                                     <h3 class="tituloCard">CAÑOS</h3>
-                                    <img src=${elementoCano.imagen} alt="caño ${elementoCano.diametro}">
+                                    <img class="img__catalogo" src=${elementoCano.imagen} alt="caño ${elementoCano.diametro}">
                                     <div class="content">
                                         <p class="tipoElemento">${elementoCano.tipo} de ${elementoCano.diametro} </p>
                                         <p class="precio">$ ${elementoCano.precio}</p>
@@ -118,11 +121,12 @@ function verCatalogo(){
     })
     
     // plantilla termica 
+    sectionTermica.innerHTML = ""
     catalogoTermica.forEach((elementoTermica)=>{
         let termicaStock = document.createElement("div")
         termicaStock.innerHTML = `<article id="${elementoTermica.id}"class="card">
                                         <h3 class="tituloCard">TERMICA  </h3>
-                                        <img src=${elementoTermica.imagen} alt="TERMICA DE ${elementoTermica.diametro}">
+                                        <img class="img__catalogo" src=${elementoTermica.imagen} alt="TERMICA DE ${elementoTermica.diametro}">
                                         <div class="content">
                                             <p class="tipoElemento">${elementoTermica.tipo} de ${elementoTermica.diametro} </p>
                                             <p class="precio">$ ${elementoTermica.precio}</p>
@@ -137,11 +141,12 @@ function verCatalogo(){
 })                        
     })
     // plantilla modulos
+    sectionModulos.innerHTML = ""
     catalogoModulos.forEach((elementoModulos)=>{
         let moduloStock = document.createElement("div")
         moduloStock.innerHTML = `<article id="${elementoModulos.id}"class="card">
                                         <h3 class="tituloCard">MODULOS</h3>
-                                        <img src=${elementoModulos.imagen} alt="MODULO DE ${elementoModulos.diametro}">
+                                        <img class="img__catalogo" src=${elementoModulos.imagen} alt="MODULO DE ${elementoModulos.diametro}">
                                         <div class="content">
                                             <p class="tipoElemento">${elementoModulos.tipo} de ${elementoModulos.diametro} </p>
                                             <p class="precio">$ ${elementoModulos.precio}</p>
@@ -161,30 +166,37 @@ function verCatalogo(){
 const agregarAlCarrito = (prodId) =>{
     const item = catalogoCables.find((prod) => prod.id === prodId)
     arrayCarrito.push(item)
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
     actualizarCarrito()
 }
 
 const agregarCarritoCano = (prodId) =>{
     const item = catalogoCano.find((prod) => prod.id === prodId)
     arrayCarrito.push(item)
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
     actualizarCarrito()
 }
 
 const agregarCarritoTermica = (prodId) =>{
     const item = catalogoTermica.find((prod) => prod.id === prodId)
     arrayCarrito.push(item)
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
     actualizarCarrito()
 }
 
 const agregarCarritoModulos = (prodId) =>{
     const item = catalogoModulos.find((prod) => prod.id === prodId)
     arrayCarrito.push(item)
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
     actualizarCarrito()
 }
+
+// constante que elimina productos del carrito 
 const eliminarDelCarrito = (prodId)=>{
     const item = arrayCarrito.find((prod)=>prod.id=== prodId)
     const indice = arrayCarrito.indexOf(item)
     arrayCarrito.splice(indice,1)
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
     actualizarCarrito()
 }
 // constante para llevar mis compras al modal
@@ -192,6 +204,7 @@ const contenedorCarrito = document.getElementById(`modal`)
 
 // constante para hacer un total de compra
 const precioTotal = document.getElementById("Total")
+
 
 // funcion para el carrito donde se crea el elemento elegido
 const actualizarCarrito = ()=> {
@@ -204,6 +217,7 @@ const actualizarCarrito = ()=> {
         <p>cantidad: <span id "cantidad">${prod.cantidad}</span></p>
         <button onclick="eliminarDelCarrito(${prod.id})"><img class="logo" src="./img/delete.png"></button>`
         contenedorCarrito.appendChild(div)
+return actualizarCarrito
     })
     // reduce que me va ir haciendo un total de los elementos elegidos
     precioTotal.innerText = arrayCarrito.reduce((acumulador, prod) => acumulador + prod.precio, 0)
@@ -220,6 +234,7 @@ function ocultarCatalogo(){
 // evento que me muestra catalogo
 const mostrarCatalogoBtn = document.getElementById("verCatalogo");
 mostrarCatalogoBtn.addEventListener("click",verCatalogo);
+
 // evento que me oculta catalogo
 let ocultarCatalogoBtn = document.getElementById("ocultarCatalogo");
 ocultarCatalogoBtn.onclick = ocultarCatalogo
@@ -230,7 +245,19 @@ const botonVaciar = document.getElementById(`vaciarCarrito`)
 // evento que vacia carrito
 botonVaciar.addEventListener(`click`, ()=> {
     arrayCarrito.length = 0
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
     actualizarCarrito()
 })
+
+// localStorage para mi arrayCarrito
+if(localStorage.getItem("carrito")){
+    arrayCarrito = JSON.parse(localStorage.getItem("carrito"))
+    actualizarCarrito()
+    console.log(arrayCarrito)
+}else {
+    console.log(`primera vez`)
+    localStorage.setItem("carrito",[])
+    console.log(arrayCarrito)
+}
 
 

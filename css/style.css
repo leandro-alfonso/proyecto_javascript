@@ -29,7 +29,49 @@ html {
     display: flex;
     flex-direction: column;
     gap: 5rem;
+    margin-top: 1rem;
 }
+
+.logo__electricidad{
+    width: 60px;
+}
+/* organizando main */
+
+.div__inicio {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div__parrafo{
+    font-size: 2em;
+    font-family: "Montserrat", sans-serif;
+}
+
+.materiales__section {
+    display: flex;
+    justify-content: space-around;
+}
+
+.materiales__article {
+    width: 40%;
+}
+
+.materiales__sub{
+    text-align: center;
+    font-size: 3em;
+    font-family: "Roboto", sans-serif;
+    color: #fa8340;
+    font-weight: 700;
+}
+
+.materiales__parrafo{
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
 /* ESCRITOS */
 .tituloPincipal{
     text-align: center;
@@ -96,7 +138,7 @@ html {
     font-size: 2.5em;
 }
 
-img {
+.img__catalogo {
     width: 300px;
 }
 
@@ -118,4 +160,68 @@ img {
 .modal-footer {
     display: flex;
     justify-content: space-between;
+}
+
+/* catalogo */
+.catalogo__section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.catalogo__btn {
+    font-size: 2em;
+    border-radius: 1rem;
+}
+
+.div__link{
+    font-size: 2em;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+}
+
+.volver__inicio{
+    text-align: center;
+    color: #0000FF;
+    font-size: 2em;
+    text-decoration: none;
+    font-weight: 600;
+}
+/* footer */
+footer {
+    display: flex;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    justify-content: space-around;
+}
+
+.footer__section{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.footer__div{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.footer__logo {
+    width: 100px;
+    height: 50px;
+}
+
+.footer__parrafo{
+    margin-bottom: 0rem;
+    font-size: 1.5em;
+}
+
+.footer__redes {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 0rem;
+    list-style-type: none;
+    margin-bottom: 0rem;
 }
