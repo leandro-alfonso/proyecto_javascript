@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/logo-electricidad.png" type="image/x-icon">
     <title>Home-electrica los primos</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -28,7 +29,8 @@
                   <a class="nav-link active" aria-current="page" href="./index.html">inicio</a>
                 </div>
                 <div>
-                    <a data-bs-toggle="modal" href="#exampleModal" id="imgCarrito"><img class="logo" src="./img/carrito.png"></a>
+                  <a class="registrarse" href="./pages/login.html">Registrarse</a>
+                    <a data-bs-toggle="modal" href="#exampleModal" id="imgCarrito"><img class="logo__carrito" src="./img/carrito.png"></a>
                       <!-- Modal -->
                       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -40,11 +42,16 @@
                             <div id="modal" class="modal-body">
                               
                             </div>
+                            <div>
+                              <p id="modalBody">
+
+                              </p>
+                            </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
                               <p class="precioProducto">Precio Total: $<span id="Total"></span></p>
                               <div>
-                                <button type="button" class="btn btn-primary">comprar</button>
+                                <a id ="comprar" type="button" class="btn btn-primary" >comprar</a>
                                 <button id="vaciarCarrito" type="button" class="btn btn-danger">vaciar carrito</button>
                               </div>
                             </div>

@@ -61,6 +61,8 @@ const elemento11 =new Otros (11,"modulo","10x5cm",500,"img/llave2.jpg",1)
 
 const elemento12 =new Otros (12,"modulo","10x5cm",500,"img/llave3.jpg",1)
 
+
+
 //creo arrays
 const catalogoCables = [elemento1,elemento2,elemento3]
 const catalogoCano = [elemento4,elemento5,elemento6]
@@ -68,8 +70,6 @@ const catalogoTermica = [elemento7,elemento8,elemento9]
 const catalogoModulos = [elemento10,elemento11,elemento12]
 // array vacio de Carrito
 let arrayCarrito = []
-
-
 
 // capturo id para la creacion de plantillas
 let articleElemento = document.getElementById("productos1")
@@ -206,7 +206,7 @@ const contenedorCarrito = document.getElementById(`modal`)
 const precioTotal = document.getElementById("Total")
 
 
-// funcion para el carrito donde se crea el elemento elegido
+// funcion para el carrito ,donde se crea el elemento elegido
 const actualizarCarrito = ()=> {
     contenedorCarrito.innerHTML = ""
     arrayCarrito.forEach((prod)=>{
@@ -215,13 +215,12 @@ const actualizarCarrito = ()=> {
         div.innerHTML = `<p>${prod.tipo}</p>
         <p>$ ${prod.precio}</p>
         <p>cantidad: <span id "cantidad">${prod.cantidad}</span></p>
-        <button onclick="eliminarDelCarrito(${prod.id})"><img class="logo" src="./img/delete.png"></button>`
+        <button class="btnBo"onclick="eliminarDelCarrito(${prod.id})"><img class="logo" src="./img/remove.png"></button>`
         contenedorCarrito.appendChild(div)
 return actualizarCarrito
     })
     // reduce que me va ir haciendo un total de los elementos elegidos
     precioTotal.innerText = arrayCarrito.reduce((acumulador, prod) => acumulador + prod.precio, 0)
-
 }
 
 function ocultarCatalogo(){
@@ -230,6 +229,7 @@ function ocultarCatalogo(){
     sectionModulos.innerHTML =""
     sectionTermica.innerHTML =""
 }
+
 // creo eventos
 // evento que me muestra catalogo
 const mostrarCatalogoBtn = document.getElementById("verCatalogo");
@@ -249,15 +249,18 @@ botonVaciar.addEventListener(`click`, ()=> {
     actualizarCarrito()
 })
 
-// localStorage para mi arrayCarrito
-if(localStorage.getItem("carrito")){
-    arrayCarrito = JSON.parse(localStorage.getItem("carrito"))
-    actualizarCarrito()
-    console.log(arrayCarrito)
-}else {
-    console.log(`primera vez`)
-    localStorage.setItem("carrito",[])
-    console.log(arrayCarrito)
+// // capturo id para comprar
+ const botonComprar = document.getElementById ("comprar")
+//  evento que me envia al html comprar
+botonComprar.addEventListener("click",verCompra);
+
+// funcion que me envia al html comprar , con OPERADOR TERNARIO
+function verCompra(){
+    arrayCarrito == 0 ? alert(`carrito vACIO`) : location.href = "./pages/compra.html";
 }
 
+const compraFinalizada = document.getElementById (`finalizarCompra`)
 
+// OPERADOR LOGICO OR
+arrayCarrito =JSON.parse(localStorage.getItem("carrito")) || []
+actualizarCarrito()
