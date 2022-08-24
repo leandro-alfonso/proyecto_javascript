@@ -1,4 +1,12 @@
 let arrayLogin = []
+let arrayCarrito = []
+function finalizado(){
+
+    location.href = "../index.html";
+    arrayCarrito.length = 0
+    localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
+    // actualizarCarrito()
+}
 
 function crear (){
     let nameInput = document.getElementById(`input__name`).value;
@@ -28,6 +36,12 @@ console.log(passw)
 
 // utilizando operador logico and con las variables creadas en la desestructuracion
 email === emailInput && localStorage.setItem(`registro`,JSON.stringify(arrayLogin))
+Toastify({
+    text: "Registrado!",
+    duration: 3000,
+    gravity: 'top',
+    position: 'left'
+}).showToast();
 }
 
 // capturando id y agregando eventos
@@ -47,6 +61,19 @@ console.log(ingresarPassword)
     const resultado = arrayLogin.find (usuario=> usuario.email == ingresarEmail && usuario.pass == ingresarPassword)
     console.log(resultado)
 // operador ternario
-    resultado ? location.href = `../pages/compra.html` : alert(`error`)
+    resultado ?Swal.fire({
+        title: "Compra realizada!",
+         text: "Su compra estara llegando en las proximas 48hs",
+         icon: "success",
+         confirmButtonText: "aceptar",
+       }).then((result)=>{
+                if(result.isConfirmed){
+          finalizado()
+                }
+              }) : Swal.fire({
+        title: 'usuario no encontrado',
+        text: 'Registrarse antes de ingresar',
+        icon: 'question',
+        confirmButtonText: 'aceptar'
+    }) 
 }
-

@@ -96,6 +96,13 @@ function verCatalogo(){
     const boton = document.getElementById(`agregar${elemento.id}`)   
     boton.addEventListener(`click`, ()=> {
     agregarAlCarrito(elemento.id)
+    Toastify({
+        text: "Agregado!",
+        duration: 3000,
+        gravity: 'top',
+        position: 'left',
+        className: `toastify`
+    }).showToast();
 })
     })
                  
@@ -117,6 +124,12 @@ function verCatalogo(){
     const boton = document.getElementById(`agregar${elementoCano.id}`)   
     boton.addEventListener(`click`, ()=> {
     agregarCarritoCano(elementoCano.id)
+    Toastify({
+        text: "Agregado!",
+        duration: 3000,
+        gravity: 'top',
+        position: 'left'
+    }).showToast();
 })
     })
     
@@ -138,6 +151,12 @@ function verCatalogo(){
     const boton = document.getElementById(`agregar${elementoTermica.id}`)   
     boton.addEventListener(`click`, ()=> {
     agregarCarritoTermica(elementoTermica.id)
+    Toastify({
+        text: "Agregado!",
+        duration: 3000,
+        gravity: 'top',
+        position: 'left'
+    }).showToast();
 })                        
     })
     // plantilla modulos
@@ -159,6 +178,12 @@ function verCatalogo(){
     const boton = document.getElementById(`agregar${elementoModulos.id}`)   
     boton.addEventListener(`click`, ()=> {
     agregarCarritoModulos(elementoModulos.id)
+    Toastify({
+        text: "Agregado!",
+        duration: 3000,
+        gravity: 'top',
+        position: 'left'
+    }).showToast();
 })
     })
 }
@@ -256,10 +281,14 @@ botonComprar.addEventListener("click",verCompra);
 
 // funcion que me envia al html comprar , con OPERADOR TERNARIO
 function verCompra(){
-    arrayCarrito == 0 ? alert(`carrito vACIO`) : location.href = "./pages/compra.html";
+    arrayCarrito == 0 ? Swal.fire({
+        position: 'top-end',
+        title: 'Carrito vacio!',
+        text: 'agregue productos al carrito',
+        icon: 'error',
+        confirmButtonText: 'aceptar'
+    }) : location.href = "./pages/login.html"
 }
-
-const compraFinalizada = document.getElementById (`finalizarCompra`)
 
 // OPERADOR LOGICO OR
 arrayCarrito =JSON.parse(localStorage.getItem("carrito")) || []

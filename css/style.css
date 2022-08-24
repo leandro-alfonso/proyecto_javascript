@@ -237,7 +237,7 @@ footer {
 }
 
 
-/* html compras */
+ /* html compras */
 .body__compras{
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -320,4 +320,9 @@ footer {
 
 .form__span{
 font-size: 1.5em;
+}
+
+/* toastify */
+.toastify{
+font-size: 2em;
 }
