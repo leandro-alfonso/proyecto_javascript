@@ -1,0 +1,111 @@
+[{
+    "id" : 1,
+    "titulo" : "Cable",
+    "tipo" : "unipolar marron",
+    "diametro" : "4mm",
+    "color" : "marron",
+    "precio" : 2000,
+    "imagen" : "img/rolloMarron.jpg",
+    "cantidad" : 1
+
+},
+{
+    "id" : 2,
+    "titulo" : "Cable",
+    "tipo" : "unipolar celeste",
+    "diametro" : "4mm",
+    "color" : "celeste",
+    "precio" : 2000,
+    "imagen" : "img/rolloCeleste.jpg",
+    "cantidad" : 1 
+},
+{
+    "id" : 3,
+    "titulo" : "Cable",
+    "tipo" : "unipolar verde",
+    "diametro" : "4mm",
+    "color" : "verde",
+    "precio" : 2000,
+    "imagen" : "img/rolloVerde.jpg",
+    "cantidad" : 1 
+},
+{
+    "id" : 4,
+    "titulo" : "Caño",
+    "tipo" : "caño corrugado",
+    "diametro" : "3/4",
+    "precio" : 1500,
+    "imagen" : "img/rolloCaño.jpg",
+    "cantidad" : 1  
+},
+{
+    "id" : 5,
+    "titulo" : "Caño",
+    "tipo" : "caño corrugado",
+    "diametro" : "7/8",
+    "precio" : 1500,
+    "imagen" : "img/rolloCaño.jpg",
+    "cantidad" : 1  
+},
+{
+    "id" : 6,
+    "titulo" : "Caño",
+    "tipo" : "caño corrugado",
+    "diametro" : "1",
+    "precio" : 1500,
+    "imagen" : "img/rolloCaño.jpg",
+    "cantidad" : 1  
+},
+{
+    "id" : 7,
+    "titulo" : "Termica",
+    "tipo" : "termica bipolar",
+    "diametro" : 10,
+    "precio" : 1000,
+    "imagen" : "img/termica4.jpg",
+    "cantidad" : 1    
+},{
+    "id" : 8,
+    "titulo" : "Termica",
+    "tipo" : "termica bipolar",
+    "diametro" : 15,
+    "precio" : 1000,
+    "imagen" : "img/termica3.jpg",
+    "cantidad" : 1    
+},
+{
+    "id" : 9,
+    "titulo" : "Termica",
+    "tipo" : "termica bipolar",
+    "diametro" : 20,
+    "precio" : 1000,
+    "imagen" : "img/termica2.jpg",
+    "cantidad" : 1  
+},
+{
+    "id" : 10,
+    "titulo" : "Modulo",
+    "tipo" : "modulo punto y toma",
+    "diametro" : "10x5cm",
+    "precio" : 500,
+    "imagen" : "img/llave1.jpg",
+    "cantidad" : 1  
+},
+{
+    "id" : 11,
+    "titulo" : "Modulo",
+    "tipo" : "modulo punto y toma",
+    "diametro" : "10x5cm",
+    "precio" : 500,
+    "imagen" : "img/llave2.jpg",
+    "cantidad" : 1  
+},
+{
+    "id" : 12,
+    "titulo" : "Modulo",
+    "tipo" : "modulo punto y toma",
+    "diametro" : "10x5cm",
+    "precio" : 500,
+    "imagen" : "img/llave3.jpg",
+    "cantidad" : 1   
+}]

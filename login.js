@@ -1,5 +1,6 @@
 let arrayLogin = []
 let arrayCarrito = []
+
 function finalizado(){
 
     location.href = "../index.html";
@@ -62,10 +63,13 @@ console.log(ingresarPassword)
     console.log(resultado)
 // operador ternario
     resultado ?Swal.fire({
-        title: "Compra realizada!",
-         text: "Su compra estara llegando en las proximas 48hs",
-         icon: "success",
-         confirmButtonText: "aceptar",
+        title: 'Compra realizada!',
+        text: 'Su compra estara llegando en las proximas 48hs.',
+        imageUrl: '../img/repartt.png',
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: 'Custom image',
+        confirmButtonText: "aceptar",
        }).then((result)=>{
                 if(result.isConfirmed){
           finalizado()

@@ -104,7 +104,17 @@ html {
 /* DISTRIBUCION DE CAJAS */
 .primeraSection{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr); */
+}
+
+.catalogo__productos{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
 }
 
 .content {
@@ -292,7 +302,6 @@ footer {
 
 
 /* estilos login */
-
 .registrarse{
     text-decoration: none;
     font-size: 2em;
@@ -300,7 +309,18 @@ footer {
 
 .main__login{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5rem;
     align-items: center;
+    background: linear-gradient(to top, #3498db, #2c3e50);
+
+}
+
+.main__parrafo{
+    font-size: 3em;
+    font-family: "Roboto", sans-serif;
+    color: #f6f5f7;
 }
 
 .registrarse__form{
