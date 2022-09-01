@@ -416,6 +416,7 @@ font-size: 2em;
 }
 .div__link{
     font-size: 1.6em;
+    display: none;
 }
 .materiales__section{
     flex-direction: column-reverse;
@@ -438,6 +439,12 @@ font-size: 2em;
     font-size: 1.1em;
     width: 85%;
 }
+.catalogo__section{
+    margin-bottom: 1.2rem;
+}
+.primeraSection{
+    margin-bottom: 2rem;
+}
 /* boton catalogo */
 .catalogo__btn{
     font-size: 1.5em;
@@ -447,7 +454,7 @@ font-size: 2em;
     width: 250px;
 }
 .volver__inicio{
-    font-size: 1.4em;
+    display: none;
 }
 .catalogo__productos{
     display: flex;
