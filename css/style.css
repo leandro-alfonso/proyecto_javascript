@@ -362,6 +362,10 @@ font-size: 2em;
 /* login */
 .main__parrafo {
     font-size: 2em;
+    text-align: center;
+}
+.main__div{
+    width: 90%;
 }
 .main__login{
     gap: 5rem;
