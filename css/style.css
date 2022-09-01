@@ -317,6 +317,10 @@ footer {
 
 }
 
+.loginSub{
+    font-size: 3em;
+}
+
 .main__parrafo{
     font-size: 3em;
     font-family: "Roboto", sans-serif;
@@ -345,4 +349,131 @@ font-size: 1.5em;
 /* toastify */
 .toastify{
 font-size: 2em;
+}
+
+@media screen and (max-width: 480px){
+/* nav */
+.logo__electricidad{
+    width: 45px;
+}
+.logo__carrito{
+    width: 40px;
+}
+/* login */
+.main__parrafo {
+    font-size: 2em;
+}
+.main__login{
+    gap: 5rem;
+}
+.registrarse__section{
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    margin-bottom: 8rem;
+    gap: 3rem;
+}
+.loginSub{
+    font-size: 2.6em;
+}
+/* footer */
+.footer__section {
+    width: 100%;
+    flex-direction: column;
+}
+.footer__div{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+}
+.footer__parrafo{
+    font-size: 1.1em;
+}
+.footer__redes{
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+.footer__logo{
+    width: 50px;
+    height: 20px;
+}
+.img__footer{
+    width: 20px;
+}
+
+/* home */
+.main{
+    gap: 1rem;
+}
+.div__parrafo{
+    font-size: 1.2em;
+}
+.div__link{
+    font-size: 1.6em;
+}
+.materiales__section{
+    flex-direction: column-reverse;
+    gap: 2rem;
+}
+.materiales__article{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.img{
+    width: 100%;
+    height: 300px;
+}
+.materiales__sub{
+    font-size: 1.6em
+}
+.materiales__parrafo{
+    font-size: 1.1em;
+    width: 85%;
+}
+/* boton catalogo */
+.catalogo__btn{
+    font-size: 1.5em;
+}
+/* catalogo */
+.img__catalogo{
+    width: 250px;
+}
+.volver__inicio{
+    font-size: 1.4em;
+}
+.catalogo__productos{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.card{
+    display: flex;
+    align-items: center;
+}
+.img__catalogo{
+    width: 100px;
+}
+.tituloCard{
+    font-size: 1.5em;
+}
+.tipoElemento{
+    font-size: 1em; 
+}
+.precio {
+    font-size: 1.2em;
+}
+.comprar{
+    font-size: 1.5em;
+}
+.catalogo__productos {
+    width: 70%;
+}
+/* toastify */
+.toastify{
+    font-size: 1em;
+    }
 }
