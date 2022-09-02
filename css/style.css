@@ -13,16 +13,6 @@ html {
     font-size: 62.5%;
 }
 
-/* body {
-    color:black;
-    background-color: antiquewhite;
-}
-
-.darkMode {
-    color:antiquewhite;
-    background-color: black;
-} */
-
 .nav-link {
     font-size: 2em;
 } 
@@ -411,6 +401,7 @@ font-size: 2em;
 /* home */
 .main{
     gap: 1rem;
+    margin-top: 0rem;
 }
 .div__parrafo{
     font-size: 1.2em;
