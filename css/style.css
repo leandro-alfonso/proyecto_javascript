@@ -85,6 +85,7 @@ html {
 .comprar{
     font-size: 2em;
     font-family: Arial, Helvetica, sans-serif;
+    padding: revert;
 }
 
 .tipoElemento {
@@ -372,6 +373,10 @@ font-size: 2em;
     font-size: 2.6em;
 }
 /* footer */
+
+footer {
+    margin-top: 1.5rem;
+}
 .footer__section {
     width: 100%;
     flex-direction: column;
@@ -401,7 +406,6 @@ font-size: 2em;
 /* home */
 .main{
     gap: 1rem;
-    margin-top: 0rem;
 }
 .div__parrafo{
     font-size: 1.2em;

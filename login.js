@@ -26,10 +26,7 @@ function crear (){
 // desestructuracion trayendo a variables los atributos
 const {nombre,email,pass}=usuario1
 arrayLogin.push(usuario1)
-console.log(arrayLogin)
-console.log  (nombre)
-console.log  (email)
-console.log  (pass)
+
 //probando el desestructurado con alias 
 const {nombre:name, pass:passw}=usuario1
 console.log(name)
@@ -38,13 +35,24 @@ console.log(passw)
 // utilizando operador logico and con las variables creadas en la desestructuracion
 email === emailInput && localStorage.setItem(`registro`,JSON.stringify(arrayLogin))
 Toastify({
-    text: "Registrado!",
-    duration: 3000,
+    text: "Registrando",
+    duration: 1500,
     gravity: 'top',
     position: 'left'
 }).showToast();
-}
+// utilizando setTimeout
+setTimeout(()=> {
+    Toastify({
+        text: "Registrado!",
+        duration: 2500,
+        gravity: 'top',
+        position: 'left'
+    }).showToast();
+}, 2000)
 
+console.log(arrayLogin)
+}
+console.log(arrayLogin)
 // capturando id y agregando eventos
 const btnLogins = document.getElementById ("btn__registrarse")
 btnLogins.addEventListener("click",crear);
@@ -57,27 +65,38 @@ ingreso.addEventListener("click",ingresar);
 function ingresar(){
     let ingresarEmail = document.getElementById(`iniciar__email`).value;
     let ingresarPassword = document.getElementById(`iniciar__password`).value;
-console.log(ingresarEmail)
-console.log(ingresarPassword)
-    const resultado = arrayLogin.find (usuario=> usuario.email == ingresarEmail && usuario.pass == ingresarPassword)
-    console.log(resultado)
-// operador ternario
-    resultado ?Swal.fire({
-        title: 'Compra realizada!',
-        text: 'Su compra estara llegando en las proximas 48hs.',
-        imageUrl: '../img/repartt.png',
-        imageWidth: 400,
-        imageHeight: 200,
-        imageAlt: 'Custom image',
-        confirmButtonText: "aceptar",
-       }).then((result)=>{
-                if(result.isConfirmed){
-          finalizado()
-                }
-              }) : Swal.fire({
-        title: 'usuario no encontrado',
-        text: 'Registrarse antes de ingresar',
-        icon: 'question',
-        confirmButtonText: 'aceptar'
-    }) 
+    let registros =JSON.parse(localStorage.getItem(`registro`))
+    console.log(registros)
+        for (const datos of registros){
+            console.log(datos)
+            let contraseña = datos.pass
+            console.log(contraseña)
+            let correo = datos.email
+            console.log(correo)
+            console.log(datos.pass)
+            if(contraseña == ingresarPassword && correo == ingresarEmail){
+                Swal.fire({
+                    title: 'Compra realizada!',
+                    icon: 'success',
+                    text: 'Su compra estara llegando en las proximas 48hs.',
+                    imageUrl: '../img/repartt.png',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                    imageAlt: 'Custom image',
+                    confirmButtonText: "aceptar",
+                   }).then((result)=>{
+                            if(result.isConfirmed){
+                      finalizado()
+                            }
+                          })
+            }else{
+                Swal.fire({
+                    title: 'usuario no encontrado',
+                    text: 'Registrarse antes de ingresar',
+                    icon: 'question',
+                    confirmButtonText: 'aceptar'
+                }) 
+            }
+        }
+
 }
