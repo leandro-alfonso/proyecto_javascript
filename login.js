@@ -50,9 +50,8 @@ setTimeout(()=> {
     }).showToast();
 }, 2000)
 
-console.log(arrayLogin)
 }
-console.log(arrayLogin)
+
 // capturando id y agregando eventos
 const btnLogins = document.getElementById ("btn__registrarse")
 btnLogins.addEventListener("click",crear);
