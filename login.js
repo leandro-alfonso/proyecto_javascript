@@ -65,14 +65,9 @@ function ingresar(){
     let ingresarEmail = document.getElementById(`iniciar__email`).value;
     let ingresarPassword = document.getElementById(`iniciar__password`).value;
     let registros =JSON.parse(localStorage.getItem(`registro`))
-    console.log(registros)
         for (const datos of registros){
-            console.log(datos)
             let contraseña = datos.pass
-            console.log(contraseña)
             let correo = datos.email
-            console.log(correo)
-            console.log(datos.pass)
             if(contraseña == ingresarPassword && correo == ingresarEmail){
                 Swal.fire({
                     title: 'Compra realizada!',
