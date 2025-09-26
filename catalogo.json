@@ -15,7 +15,7 @@
     "tipo" : "unipolar celeste",
     "diametro" : "4mm",
     "color" : "celeste",
-    "precio" : 2000,
+    "precio" : 3000,
     "imagen" : "img/rolloCeleste.jpg",
     "cantidad" : 1 
 },
@@ -25,7 +25,7 @@
     "tipo" : "unipolar verde",
     "diametro" : "4mm",
     "color" : "verde",
-    "precio" : 2000,
+    "precio" : 4000,
     "imagen" : "img/rolloVerde.jpg",
     "cantidad" : 1 
 },
