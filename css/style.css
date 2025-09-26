@@ -342,8 +342,61 @@ font-size: 1.5em;
 .toastify{
 font-size: 2em;
 }
+@media screen and (min-width: 481px) and (max-width: 768px){
+    /* nav */
+.main{
+    gap: 1rem;
+}
+.logo__electricidad{
+    width: 60px;
+}
+.logo__carrito{
+    width: 50px;
+}
+.img{
+    width: 100%;
+    height: 300px;
+    display: flex;
+}
+.materiales__section {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+}
+.materiales__article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.materiales_img{
+    display: flex;
+      flex-direction: column-reverse;
+    align-items: center;
+}
+.materiales__sub{
+    font-size: 2.2em;
+}
+.materiales__parrafo{
+    font-size: 1.5em;
+}
+.catalogo__btn{
+    font-size: 1.7em;
+}
+.volver__inicio{
+        font-size: 1.5em;
+}
+.footer__logo{
+     width: 40px;
+     height: 20px;
+}
+.footer__parrafo{
+    font-size: 1em;
+}
+
+}
 
 @media screen and (max-width: 480px){
+
 /* nav */
 .logo__electricidad{
     width: 45px;
@@ -357,7 +410,7 @@ font-size: 2em;
     text-align: center;
 }
 .main__div{
-    width: 90%;
+    width: 80%;
 }
 .main__login{
     gap: 5rem;
